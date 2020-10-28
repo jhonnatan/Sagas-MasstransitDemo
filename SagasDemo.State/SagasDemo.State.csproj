@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automatonymous" Version="5.0.2" />
+    <PackageReference Include="MassTransit" Version="7.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SagasDemo.Contracts\SagasDemo.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
