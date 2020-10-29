@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  sagasdemo.service:
+    image: ${DOCKER_REGISTRY-}sagasdemoservice
+    environment:
+      DB_CONN: Server=sagasdemo.database;Port=5432;Database=sagasdemo;User Id=postgres;Password=postgres;
+    build:
+      context: .
+      dockerfile: SagasDemo.Service/Dockerfile
+    networks:
+      - sagasdemo-network
+
+  sagasdemo.rabbitmq:
+    container_name: dev-rabbitmq
+    hostname: rabbit
+    build:
+      context: .
+      dockerfile: ./RabbitMq.Dockerfile
+    ports:
+     - "5672:5672"
+     - "15672:15672"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 30s
+      timeout: 10s
+    networks:
+      - sagasdemo-network 
+
+  sagasdemo.database:
+    image: postgres:9.5
+    restart: always
+    environment:  
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sagasdemo
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data    
+    networks:
+      - sagasdemo-network
+
+volumes:  
+  pgdata:  
+
+networks: 
+  sagasdemo-network:

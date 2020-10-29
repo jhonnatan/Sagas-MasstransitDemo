@@ -1,5 +1,0 @@
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Activities\bin\Debug\netstandard2.0\SagasDemo.Activities.deps.json
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Activities\bin\Debug\netstandard2.0\SagasDemo.Activities.dll
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Activities\obj\Debug\netstandard2.0\SagasDemo.Activities.AssemblyInfoInputs.cache
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Activities\obj\Debug\netstandard2.0\SagasDemo.Activities.AssemblyInfo.cs
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Activities\obj\Debug\netstandard2.0\SagasDemo.Activities.csprojAssemblyReference.cache

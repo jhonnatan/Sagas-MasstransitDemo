@@ -1,8 +1,0 @@
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\bin\Debug\netstandard2.0\SagasDemo.Contracts.deps.json
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\bin\Debug\netstandard2.0\SagasDemo.Contracts.dll
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\bin\Debug\netstandard2.0\SagasDemo.Contracts.pdb
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\obj\Debug\netstandard2.0\SagasDemo.Contracts.AssemblyInfoInputs.cache
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\obj\Debug\netstandard2.0\SagasDemo.Contracts.AssemblyInfo.cs
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\obj\Debug\netstandard2.0\SagasDemo.Contracts.dll
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\obj\Debug\netstandard2.0\SagasDemo.Contracts.pdb
-C:\Projetos\MassTransit\SagasDemo\SagasDemo.Contracts\obj\Debug\netstandard2.0\SagasDemo.Contracts.csprojAssemblyReference.cache
