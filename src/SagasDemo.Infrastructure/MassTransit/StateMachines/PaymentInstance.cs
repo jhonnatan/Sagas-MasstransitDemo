@@ -1,7 +1,7 @@
 ﻿using Automatonymous;
 using System;
 
-namespace SagasDemo.Infrastructure.StateMachines
+namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 {
     public class PaymentInstance : SagaStateMachineInstance
     {

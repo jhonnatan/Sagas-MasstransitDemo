@@ -3,7 +3,7 @@ using SagasDemo.Contracts;
 using System;
 using System.Threading.Tasks;
 
-namespace SagasDemo.Infrastructure.Consumers
+namespace SagasDemo.Infrastructure.MassTransit.Consumers
 {
     public class SubmitPaymentConsumer : IConsumer<ISubmitPayment>
     {

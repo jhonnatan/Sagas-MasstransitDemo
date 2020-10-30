@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SagasDemo.Infrastructure.DataAccess.Map;
-using SagasDemo.Infrastructure.StateMachines;
+using SagasDemo.Infrastructure.MassTransit.StateMachines;
 using System;
 using System.Collections.Generic;
 

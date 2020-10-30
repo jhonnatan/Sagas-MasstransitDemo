@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using System.Threading.Tasks;
 
-namespace SagasDemo.Infrastructure.Publishers
+namespace SagasDemo.Infrastructure.MassTransit.Publishers
 {
     public abstract class Publisher<T> where T : class
     {

@@ -1,9 +1,9 @@
 ﻿using Automatonymous;
 using SagasDemo.Contracts;
-using SagasDemo.Infrastructure.Activities.PaymentReceived;
+using SagasDemo.Infrastructure.MassTransit.Activities.PaymentReceived;
 using System;
 
-namespace SagasDemo.Infrastructure.StateMachines
+namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 {
     public class PaymentStateMachine : MassTransitStateMachine<PaymentInstance>
     {        

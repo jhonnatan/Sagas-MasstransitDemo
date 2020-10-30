@@ -1,8 +1,8 @@
 ﻿using MassTransit;
-using SagasDemo.Infrastructure.StateMachines;
+using SagasDemo.Infrastructure.MassTransit.StateMachines;
 using System.Threading.Tasks;
 
-namespace SagasDemo.Infrastructure.Publishers
+namespace SagasDemo.Infrastructure.MassTransit.Publishers
 {
     public class PaymentPublisher
     {

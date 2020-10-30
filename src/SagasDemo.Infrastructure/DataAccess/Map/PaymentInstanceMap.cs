@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SagasDemo.Infrastructure.StateMachines;
+using SagasDemo.Infrastructure.MassTransit.StateMachines;
 
 namespace SagasDemo.Infrastructure.DataAccess.Map
 {

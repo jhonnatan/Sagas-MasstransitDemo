@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using MassTransit.Definition;
 
-namespace SagasDemo.Infrastructure.StateMachines
+namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 {
     public class PaymentStateMachineDefinition : SagaDefinition<PaymentInstance>
     {

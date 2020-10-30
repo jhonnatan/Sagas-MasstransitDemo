@@ -2,11 +2,11 @@
 using GreenPipes;
 using MassTransit;
 using SagasDemo.Contracts;
-using SagasDemo.Infrastructure.StateMachines;
+using SagasDemo.Infrastructure.MassTransit.StateMachines;
 using System;
 using System.Threading.Tasks;
 
-namespace SagasDemo.Infrastructure.Activities.PaymentReceived
+namespace SagasDemo.Infrastructure.MassTransit.Activities.PaymentReceived
 {
     public class PaymentReceivedActivity : Activity<PaymentInstance, IPaymentReceived>
     {

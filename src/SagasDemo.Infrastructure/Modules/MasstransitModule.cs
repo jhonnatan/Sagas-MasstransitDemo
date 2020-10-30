@@ -2,11 +2,11 @@
 using System;
 using MassTransit;
 using MassTransit.EntityFrameworkCoreIntegration;
-using SagasDemo.Infrastructure.StateMachines;
 using SagasDemo.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using SagasDemo.Infrastructure.Consumers;
-using SagasDemo.Infrastructure.Activities;
+using SagasDemo.Infrastructure.MassTransit.Activities;
+using SagasDemo.Infrastructure.MassTransit.Consumers;
+using SagasDemo.Infrastructure.MassTransit.StateMachines;
 
 namespace SagasDemo.Infrastructure.Modules
 {
