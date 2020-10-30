@@ -9,7 +9,7 @@ namespace SagasDemo.Infrastructure.DataAccess.Map
         public void Configure(EntityTypeBuilder<PaymentInstance> builder)
         {
             builder.HasKey(x=>x.CorrelationId);
-
+            builder.ToTable("PaymentInstance", "sagasdemo");
             builder.Property(x => x.CurrentState).IsRequired();
             builder.Property(x => x.PaymentId).IsRequired();
             builder.Property(x => x.PaymentDate).IsRequired();

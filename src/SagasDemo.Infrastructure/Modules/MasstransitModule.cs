@@ -16,7 +16,7 @@ namespace SagasDemo.Infrastructure.Modules
         {
             var teste = Environment.GetEnvironmentVariable("DB_CONN");
             builder.AddMassTransit(cfg =>
-            {                
+            {
                 cfg.SetKebabCaseEndpointNameFormatter();
                 cfg.AddSagaStateMachine<PaymentStateMachine, PaymentInstance>(typeof(PaymentStateMachineDefinition))
                     .EntityFrameworkRepository(r =>
@@ -33,15 +33,26 @@ namespace SagasDemo.Infrastructure.Modules
 
                 cfg.UsingRabbitMq((x, y) =>
                 {
-                    y.Host("localhost", "/", h =>
+                    y.Host("rabbitmq", "/", h =>
                     {
                         h.Username("guest");
                         h.Password("guest");
                     });
                     y.ConfigureEndpoints(x);
                 });
-            });
 
+                //cfg.AddBus(context => Bus.Factory.CreateUsingRabbitMq(c =>
+                //{
+                //    c.Host("rabbitmq", "/", u => {
+                //        u.Password("guest");
+                //        u.Username("guest");
+                //    });                    
+                //    c.ConfigureEndpoints(context);
+                //}));
+
+
+            });
+            
             
         }
     }

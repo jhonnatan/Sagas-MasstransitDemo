@@ -27,14 +27,14 @@ namespace SagasDemo.Service
                 // Send Messages to test
 
                 //// Create a Payment to publish 
-                //var payment = new Payment()
-                //{
-                //    PaymentId = NewId.NextGuid(),
-                //    PaymentDate = DateTime.Now,
-                //    PaymentAmount = 10
-                //};
-            
-                //bus.Publish<IPaymentReceived>(payment);
+                var payment = new Payment()
+                {
+                    PaymentId = NewId.NextGuid(),
+                    PaymentDate = DateTime.Now,
+                    PaymentAmount = 10
+                };
+
+                bus.Publish<IPaymentReceived>(payment);
 
                 // ---------------------------------------------
             }
@@ -56,8 +56,8 @@ namespace SagasDemo.Service
         private static IContainer RegisterContainers()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterModule<MasstransitModule>();
             builder.RegisterModule<DataAcessModule>();
+            builder.RegisterModule<MasstransitModule>();
             return builder.Build();
 
         }
