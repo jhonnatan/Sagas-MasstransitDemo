@@ -24,8 +24,10 @@ namespace SagasDemo.Infrastructure.MassTransit.Activities.PaymentReceived
 
         public async Task Execute(BehaviorContext<PaymentInstance, IPaymentReceived> context, Behavior<PaymentInstance, IPaymentReceived> next)
         {
-            if (PaymentValidation(context.Data.PaymentAmount))            
-                await _context.Publish<IPaymentCompleted>( new { context.Data.PaymentId, context.Data.PaymentDate, context.Data.PaymentAmount} );            
+            if (PaymentValidation(context.Data.PaymentAmount))
+            {             
+                await _context.Publish<IPaymentCompleted>(new { context.Data.PaymentId, context.Data.PaymentDate, context.Data.PaymentAmount });             
+            }
             else
                 await _context.Publish<IPaymentFailed>(new { context.Data.PaymentId, context.Data.PaymentDate, context.Data.PaymentAmount });
 

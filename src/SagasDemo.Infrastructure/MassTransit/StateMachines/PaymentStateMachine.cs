@@ -1,7 +1,9 @@
 ﻿using Automatonymous;
 using SagasDemo.Contracts;
+using SagasDemo.Infrastructure.MassTransit.Activities.PaymentCompleted;
 using SagasDemo.Infrastructure.MassTransit.Activities.PaymentReceived;
 using System;
+using System.Threading.Tasks;
 
 namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 {
@@ -11,34 +13,37 @@ namespace SagasDemo.Infrastructure.MassTransit.StateMachines
         {
             InstanceState(x=>x.CurrentState);
 
-            Event(() => EventPaymentReceived, x =>
-            {
-                x.CorrelateById(m => m.Message.PaymentId);
-                x.SelectId(m => m.Message.PaymentId);
-            });
-
-            Event(() => EventPaymentCompleted, x =>
-            {
-                x.CorrelateById(m => m.Message.PaymentId);
-            });
-
-            Event(() => EventPaymentFailed, x =>
-            {
-                x.CorrelateById(m => m.Message.PaymentId);
-            });
+            Event(() => EventPaymentReceived, x => { x.CorrelateById(m => m.Message.PaymentId); });
+            Event(() => EventPaymentCompleted, x => { x.CorrelateById(m => m.Message.PaymentId); });
+            Event(() => EventPaymentFailed, x => { x.CorrelateById(m => m.Message.PaymentId); });
 
             Initially(
                 When(EventPaymentReceived)
-                .Activity(x => x.OfType<PaymentReceivedActivity>())
-                .TransitionTo(Received));
+                    .Then(Initialize)
+                    .Activity(x => x.OfType<PaymentReceivedActivity>())
+                    .TransitionTo(Received));
 
             During(Received,
                 When(EventPaymentCompleted)
                     .Then(Register)
-                    .TransitionTo(Registered),
+                    .Activity(x => x.OfType<PaymentCompletedActivity>())
+                    .TransitionTo(Completed),
                 When(EventPaymentFailed)
                     .Then(PaymentFailure)
-                    .TransitionTo(Failure));
+                    .TransitionTo(Failure));            
+           
+        }        
+
+        private void Initialize(BehaviorContext<PaymentInstance, IPaymentReceived> context)
+        {
+            InitializeInstance(context.Instance, context.Data);
+        }
+
+        private void InitializeInstance(PaymentInstance instance, IPaymentReceived data)
+        {
+            instance.PaymentId = data.PaymentId;
+            instance.PaymentDate = data.PaymentDate;
+            instance.PaymentAmount = data.PaymentAmount;
         }
 
         private void PaymentFailure(BehaviorContext<PaymentInstance, IPaymentFailed> context)
@@ -52,13 +57,12 @@ namespace SagasDemo.Infrastructure.MassTransit.StateMachines
         }
 
         public State Received { get; private set; }
-        public State Registered { get; private set; }
+        public State Completed { get; private set; }
         public State Failure { get; private set; }
         
         public Event<IPaymentReceived> EventPaymentReceived { get; private set; }
         public Event<IPaymentCompleted> EventPaymentCompleted { get; private set; }
         public Event<IPaymentFailed> EventPaymentFailed { get; private set; }
-
 
     }
 }

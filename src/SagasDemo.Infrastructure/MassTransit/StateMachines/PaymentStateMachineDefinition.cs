@@ -1,5 +1,6 @@
 ﻿using MassTransit;
 using MassTransit.Definition;
+using GreenPipes;
 
 namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 {
@@ -12,8 +13,8 @@ namespace SagasDemo.Infrastructure.MassTransit.StateMachines
 
         protected override void ConfigureSaga(IReceiveEndpointConfigurator endpointConfigurator, ISagaConfigurator<PaymentInstance> sagaConfigurator)
         {
-            //sagaConfigurator.UseMessageRetry(r => r.Immediate(5));
-            //sagaConfigurator.UseInMemoryOutbox();
+            sagaConfigurator.UseMessageRetry(r => r.Immediate(5));            
+            sagaConfigurator.UseInMemoryOutbox();
 
             //var partition = endpointConfigurator.CreatePartitioner(10);
 

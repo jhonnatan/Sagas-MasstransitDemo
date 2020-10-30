@@ -13,9 +13,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A14D7D0F-6D85-4D8A-B10B-9BAB1D3399AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagasDemo.Migration", "..\SagasDemo.Migration\SagasDemo.Migration.csproj", "{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_migration", "_migration", "{B42C8F37-E411-42FC-8FF5-A34C28E878FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SagasDemo.Migration", "SagasDemo.Migration\SagasDemo.Migration.csproj", "{6BB3FE23-61EA-406D-9B28-A3D1E84A1523}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,17 +39,17 @@ Global
 		{B852B0EB-2A5B-4F82-ADF0-1D035B566E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B852B0EB-2A5B-4F82-ADF0-1D035B566E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B852B0EB-2A5B-4F82-ADF0-1D035B566E27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB3FE23-61EA-406D-9B28-A3D1E84A1523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB3FE23-61EA-406D-9B28-A3D1E84A1523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB3FE23-61EA-406D-9B28-A3D1E84A1523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB3FE23-61EA-406D-9B28-A3D1E84A1523}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ACAE00F6-E6D3-4C09-930A-5444253EFF9E} = {A14D7D0F-6D85-4D8A-B10B-9BAB1D3399AC}
-		{1D83C257-FC3D-46F1-89A4-F7DC69B25DFD} = {B42C8F37-E411-42FC-8FF5-A34C28E878FC}
+		{6BB3FE23-61EA-406D-9B28-A3D1E84A1523} = {B42C8F37-E411-42FC-8FF5-A34C28E878FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7662EC58-CA03-49D8-8C9B-2AC685996E76}

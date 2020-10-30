@@ -4,6 +4,7 @@ using SagasDemo.Contracts;
 using SagasDemo.Domain;
 using SagasDemo.Infrastructure.Modules;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace SagasDemo.Service
@@ -26,15 +27,27 @@ namespace SagasDemo.Service
                 // ---------------------------------------------
                 // Send Messages to test
 
-                //// Create a Payment to publish 
-                var payment = new Payment()
+                //// Create a Payments to publish 
+                var payments = new List<Payment>()
                 {
-                    PaymentId = NewId.NextGuid(),
-                    PaymentDate = DateTime.Now,
-                    PaymentAmount = 10
+                    new Payment() // OK
+                    {
+                        PaymentId = NewId.NextGuid(),
+                        PaymentDate = DateTime.Now,
+                        PaymentAmount = 199.99
+                    },
+                    new Payment() // Error
+                    {
+                        PaymentId = NewId.NextGuid(),
+                        PaymentDate = DateTime.Now,
+                        PaymentAmount = 0
+                    }
                 };
-
-                bus.Publish<IPaymentReceived>(payment);
+                
+                foreach (var payment in payments)
+                {
+                    bus.Publish<ISubmitPayment>(payment);
+                }                
 
                 // ---------------------------------------------
             }
